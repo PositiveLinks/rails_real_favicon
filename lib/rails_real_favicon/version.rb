@@ -1,3 +1,3 @@
 module RailsRealFavicon
-  VERSION = "0.0.7"
+  VERSION = "2024.02.15"
 end

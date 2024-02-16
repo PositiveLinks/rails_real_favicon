@@ -5,9 +5,9 @@ require 'zip'
 require 'base64'
 
 class FaviconGenerator < Rails::Generators::Base
-  API_KEY = '04641dc33598f5463c2f1ff49dd9e4a617559f4b'
+  API_KEY = 'a455faf8e0f5db1a589976e151f8526230dc428c'
 
-  PATH_UNIQUE_KEY = 'Dfv87ZbNh2'
+  PATH_UNIQUE_KEY = 'Efv87ZbNh2'
 
   def generate_favicon
     if File.exist?('config/favicon.yml') && defined?(Rails.application.config_for)
@@ -67,7 +67,7 @@ class FaviconGenerator < Rails::Generators::Base
     end
 
     File.open(local_path, "wb") do |saved_file|
-      open(url, "rb") do |read_file|
+      URI.parse(url).open do |read_file|
         saved_file.write(read_file.read)
       end
     end
