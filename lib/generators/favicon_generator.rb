@@ -10,8 +10,8 @@ class FaviconGenerator < Rails::Generators::Base
   PATH_UNIQUE_KEY = 'Efv87ZbNh2'
 
   def generate_favicon
-    req = YAML.load_file('config/favicon.yml')[Rails.env]
-
+    req = YAML.load_file(File.join(Rails.root, 'config', 'favicon.yml'))[Rails.env]
+    
     req['api_key'] = API_KEY
 
     req['files_location'] = Hash.new
